@@ -1,21 +1,26 @@
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import MyNavbar from "./components/MyNavbar";
+import { Container, Row, Col } from "react-bootstrap";
+import Home from "./components/Home";
 
 function App() {
- 
-
   return (
-    <>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      
-    </Routes>
-  
-   
-    </>
-  )
+    <BrowserRouter>
+      <MyNavbar />
+      <Container>
+        <Row className="justify-content-center">
+          <Col xs={12} md={8}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/*<Route path="/details/:spaceID" element={} />*/}
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
